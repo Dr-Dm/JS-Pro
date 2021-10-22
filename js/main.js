@@ -61,6 +61,16 @@ class Basket{
     change() {
 
     }
+
+    render() {
+
+    }
+}
+
+class BasketItem {
+    render() {
+
+    }
 }
 
 let list = new ProductList();
