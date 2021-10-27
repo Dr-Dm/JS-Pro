@@ -98,7 +98,7 @@ img {
     border-radius: 3px;
     box-sizing: border-box;
     right: 0;
-    top: 10%;
+    top: 100%;
     position: absolute;
     background-color: white;
     padding: 20px;
@@ -117,4 +117,8 @@ img {
 
 .product-price {
     margin-top: 40px;
+}
+
+.right-block {
+    width: 60px;
 }

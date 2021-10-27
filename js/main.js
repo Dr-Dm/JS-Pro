@@ -20,6 +20,7 @@ class ProductsList {
     constructor(container = '.products'){
         this.container = container;
         this.goods = [];//массив товаров из JSON документа
+        this.allProducts = [];
         this._getProducts()
             .then(data => { //data - объект js
                  this.goods = [...data];
@@ -48,7 +49,7 @@ class ProductsList {
         const block = document.querySelector(this.container);
         for (let product of this.goods){
             const productObj = new ProductItem(product);
-//            this.allProducts.push(productObj);
+            this.allProducts.push(productObj);
             block.insertAdjacentHTML('beforeend', productObj.render());
         }
 
@@ -91,7 +92,7 @@ class Basket {
     }
 
     _clickBasket() {
-        document.querySelector('.btn-cart').addEventListener('click', () => {
+        document.querySelector(".btn-cart").addEventListener('click', () => {
             document.querySelector(this.container).classList.toggle('invisible');
         });
     }
@@ -119,18 +120,18 @@ class Basket {
 class BasketItem {
 
     render(product, img = 'https://via.placeholder.com/60x45') {
-        return `<div class="cart-item" data-id="${this.id_product}">
+        return `<div class="cart-item" data-id="${product.id_product}">
         <div class="product-bio">
-        <img src="${this.img}" alt="image">
+        <img src="${product.img}" alt="image">
         <div class="product-desc">
-        <p class="product-title">${this.product_name}</p>
-        <p class="product-quantity">Quantity: ${this.quantity}</p>
-    <p class="product-single-price">$${this.price} each</p>
+        <p class="product-title">${product.product_name}</p>
+        <p class="product-quantity">Quantity: ${product.quantity}</p>
+    <p class="product-single-price">$${product.price}</p>
     </div>
     </div>
     <div class="right-block">
-        <button class="del-btn" data-id="${this.id_product}">&times;</button>
-        <p class="product-price">$${this.quantity*this.price}</p>
+        <button class="del-btn" data-id="${product.id_product}">&times;</button>
+        <p class="product-price">$${product.quantity*product.price}</p>
     </div>
     </div>`
         
@@ -139,5 +140,4 @@ class BasketItem {
 
 new Basket();
 
-{/* console.log(list.allProducts); */}
 
