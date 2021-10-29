@@ -30,9 +30,9 @@
     </p>
     <button id="but">Button</button>
     <script>
-        let alltext = document.getElementById('text');
+        let text = document.getElementById('text');
         document.getElementById('but').addEventListener('click', () => {
-            text.textContent = text.textContent.replace(/'/g, '"');
+            text.textContent = text.textContent.replace(/\B'/g, '"');
         });
     </script>
 </body>
