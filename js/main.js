@@ -8,7 +8,8 @@ const app = new Vue({
         filtered: [],
         imgCatalog: 'https://via.placeholder.com/200x150',
         userSearch: '',
-        show: false
+        show: false,
+        cart: []
     },
     methods: {
         filter(userSearch) {
